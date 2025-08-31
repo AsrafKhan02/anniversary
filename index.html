@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Happy Anniversary 💕</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #ffdde1, #ee9ca7);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: fixed;
+      top: -10px;
+      font-size: 20px;
+      color: red;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh);
+      }
+    }
+
+    .intro, .memories, .closing {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .intro h2 {
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+
+    .intro h2:nth-child(1) { animation-delay: 0s; }
+    .intro h2:nth-child(2) { animation-delay: 2s; }
+    .intro h2:nth-child(3) { animation-delay: 4s; }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      background: #ff4e50;
+      border: none;
+      border-radius: 20px;
+      color: white;
+      font-size: 18px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #fc913a;
+    }
+
+    /* Memories Section */
+    .timeline {
+      max-width: 600px;
+      margin: auto;
+      text-align: left;
+    }
+    .timeline-item {
+      background: rgba(255,255,255,0.2);
+      margin: 15px 0;
+      padding: 15px;
+      border-radius: 15px;
+    }
+    .timeline-item img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    /* Closing Section */
+    .closing h1 {
+      font-size: 40px;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #fff, 0 0 20px pink; }
+      to { text-shadow: 0 0 20px #ff6b81, 0 0 40px #ff4757; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Falling hearts effect -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "❤️";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 5) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+
+  <!-- Intro Section -->
+  <section class="intro" id="intro">
+    <h2>The day I met you, my world found its missing piece…</h2>
+    <h2>Every laugh, every hug, every moment with you is my treasure…</h2>
+    <h2>Today, I celebrate us — our love, our journey, our forever 💕</h2>
+    <button onclick="document.getElementById('memories').scrollIntoView({behavior:'smooth'})">
+      Continue 💕
+    </button>
+  </section>
+
+  <!-- Memories Section -->
+  <section class="memories" id="memories">
+    <h1>Our Journey Together</h1>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>💌 The Day We Met</h3>
+        <p>I still remember the way you smiled at me that day — my heart knew it was you.</p>
+        <img src="https://picsum.photos/400/250?random=1" alt="The day we met">
+      </div>
+      <div class="timeline-item">
+        <h3>🌹 First Date</h3>
+        <p>A night of endless laughter and shy glances… one I’ll never forget.</p>
+        <img src="https://picsum.photos/400/250?random=2" alt="First date">
+      </div>
+      <div class="timeline-item">
+        <h3>✈️ Our Trip</h3>
+        <p>Every place becomes magical when I’m holding your hand.</p>
+        <img src="https://picsum.photos/400/250?random=3" alt="Our trip together">
+      </div>
+      <div class="timeline-item">
+        <h3>💖 Countless Memories</h3>
+        <p>From little moments to big adventures, every day with you is special.</p>
+        <img src="https://picsum.photos/400/250?random=4" alt="Memories together">
+      </div>
+    </div>
+    <button onclick="document.getElementById('closing').scrollIntoView({behavior:'smooth'})">
+      Next ➡️
+    </button>
+  </section>
+
+  <!-- Closing Section -->
+  <section class="closing" id="closing">
+    <h1>Forever Yours ❤️</h1>
+    <p>You are not just my love — you are my best friend, my happiness, my home.  
+       With you, I’ve found forever. Happy Anniversary, my love!</p>
+    <audio autoplay loop>
+      <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  </section>
+
+</body>
+</html>
